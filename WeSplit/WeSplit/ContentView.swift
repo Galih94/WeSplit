@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    let dorms = ["Hufflepuff", "Griffindor", "Ravenclaw", "Slytherin"]
+    @State private var selectedDorms = ""
     var body: some View {
-        Form {
-            ForEach(0..<100) { number in
-                Text("Row \(number)")
-            }
+        NavigationStack {
+            Form {
+                Picker("Select your dorms", selection: $selectedDorms) {
+                    ForEach(dorms, id: \.self) {
+                        Text($0)
+                    }
+                }
+            }.navigationTitle("DORMS")
         }
     }
 }
