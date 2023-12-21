@@ -9,24 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Form {
-            Section {
-                Text("Hello World Title!")
+        NavigationStack {
+            Form {
+                Section {
+                    Text("Hello World Title!")
+                }
+                Section {
+                    Text("Hello World Title!")
+                    Text("Hello World!")
+                    Text("Hello World!")
+                    Text("Hello World!")
+                }
+                Section {
+                    Text("Hello World!")
+                    Text("Hello World!")
+                    Text("Hello World!")
+                    Text("Hello World!")
+                    Text("Hello World!")
+                    Text("Hello World!")
+                }
             }
-            Section {
-                Text("Hello World Title!")
-                Text("Hello World!")
-                Text("Hello World!")
-                Text("Hello World!")
-            }
-            Section {
-                Text("Hello World!")
-                Text("Hello World!")
-                Text("Hello World!")
-                Text("Hello World!")
-                Text("Hello World!")
-                Text("Hello World!")
-            }
+            .navigationTitle("SwiftUI")
         }
     }
 }
