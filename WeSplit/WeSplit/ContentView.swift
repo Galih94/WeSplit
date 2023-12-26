@@ -33,6 +33,7 @@ struct ContentView: View {
                     Text(checkedAmount, format: .currency(code: Locale.current.currency?.identifier ?? "IDR"))
                 }
             }
+            .navigationTitle("WeSPlit")
         }
     }
 }
