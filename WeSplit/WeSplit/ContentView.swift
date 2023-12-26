@@ -12,7 +12,18 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     
+    let MIN_NUM_PEOPLE = 2
     let tipPercentages = [0, 10, 15, 20, 25]
+    var totalPerPerson: Double {
+        let percentageSelected = Double(tipPercentage)
+        let peopleCount = Double(numberOfPeople + MIN_NUM_PEOPLE)
+        
+        let tipValue = (checkedAmount / 100.0 * percentageSelected)
+        let grandTotal = checkedAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+        return amountPerPerson
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -36,8 +47,8 @@ struct ContentView: View {
                     .pickerStyle(.segmented)
                 }
                 
-                Section("Result Tips:") {
-                    Text(checkedAmount, format: .currency(code: Locale.current.currency?.identifier ?? "IDR"))
+                Section("Amount after tips:") {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "IDR"))
                 }
             }
             .navigationTitle("WeSPlit")
