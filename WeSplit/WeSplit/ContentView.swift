@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    let dorms = ["Hufflepuff", "Griffindor", "Ravenclaw", "Slytherin"]
-    @State private var selectedDorms = ""
+    @State private var checkedAmount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
+    
+    let tipPercentages = [0, 10, 15, 20, 25]
     var body: some View {
-        NavigationStack {
-            Form {
-                Picker("Select your dorms", selection: $selectedDorms) {
-                    ForEach(dorms, id: \.self) {
-                        Text($0)
-                    }
-                }
-            }.navigationTitle("DORMS")
+        Form {
+            Section {
+                TextField("Amount", value: $checkedAmount, format: .currency(code: Locale.current.currency?.identifier ?? "IDR"))
+                    .keyboardType(.decimalPad)
+            }
+            
+            Section {
+                Text("Result Tips:")
+                Text(checkedAmount, format: .currency(code: Locale.current.currency?.identifier ?? "IDR"))
+            }
         }
     }
 }
