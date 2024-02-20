@@ -61,6 +61,7 @@ struct ContentView: View {
                 
                 Section("Total Amount") {
                     Text(total, format: .currency(code: Locale.current.currency?.identifier ?? "IDR"))
+                        .foregroundStyle( tipPercentage == 0 ? .red : .primary )
                 }
             }
             .navigationTitle("WeSPlit")
