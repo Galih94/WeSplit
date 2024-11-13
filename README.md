@@ -3,7 +3,6 @@ This is a basic learning project to check-splitting app that you might use after
 The source learning is from 1st project of course "100 Days of SwiftUI" (https://www.hackingwithswift.com/100/swiftui)
 
 # WeSplit – Image Comments Feature
-**Displaying image comments when user taps on an image in the feed.**
 ![Image Main UI](image-main-ui.png)
 ---
 
